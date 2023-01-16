@@ -1,0 +1,18 @@
+.login {
+  border: 10px solid #3a415c;
+  border-radius: 30px;
+  padding: 15px;
+  margin: 15px;
+}
+
+.title {
+  font-size: 50px;
+  line-height: 60px;
+  color: #3a415c;
+  text-align: center;
+}
+
+.IaB {
+  display: flex;
+  flex-direction: column;
+}
