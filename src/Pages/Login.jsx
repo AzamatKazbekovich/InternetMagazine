@@ -1,13 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import MyButton from "../Components/UI/Button/MyButton";
 import MyInput from "../Components/UI/Input/MyInput";
+import { AuthContext } from "../Context/Context";
 import classes from "./Login.module.css";
 
 const Login = () => {
+  const { isAuth, setIsAuth } = useContext(AuthContext)
+ 
   const login = (event) => {
     event.preventDefault();
-
-    localStorage.setItem();
+    setIsAuth(true)
+    localStorage.setItem('auth','true');
   };
 
   const [email, setEmail] = useState("");
