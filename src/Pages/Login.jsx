@@ -5,12 +5,12 @@ import { AuthContext } from "../Context/Context";
 import classes from "./Login.module.css";
 
 const Login = () => {
-  const { isAuth, setIsAuth } = useContext(AuthContext)
- 
+  const { isAuth, setIsAuth } = useContext(AuthContext);
+
   const login = (event) => {
     event.preventDefault();
-    setIsAuth(true)
-    localStorage.setItem('auth','true');
+    setIsAuth(true);
+    localStorage.setItem("auth", "true");
   };
 
   const [email, setEmail] = useState("");
