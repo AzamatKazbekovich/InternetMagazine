@@ -9,11 +9,11 @@ import axios from "axios";
 function App() {
   const [isAuth, setIsAuth] = useState(false);
 
-  // useEffect(() => {
-  //   if (localStorage.getItem("auth")) {
-  //     setIsAuth(true);
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (localStorage.getItem("auth")) {
+      setIsAuth(true);
+    }
+  }, []);
 
   return isAuth ? (
     <AuthContext.Provider value={{ isAuth, setIsAuth }}>
