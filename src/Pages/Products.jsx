@@ -11,6 +11,7 @@ const Products = () => {
   const [categories, setCategories] = useState([])
   const [category, setCategory] = useState('')
   const [searchQuery, setSearchQuery] = useState('')
+  const [searchCurrentProducts, setSearchCurrentProducts] = useState('')
   
 
 
@@ -40,11 +41,22 @@ const Products = () => {
       }
     },[category, products])
 
+    useEffect(()=>{
+      if(searchQuery){
+        const filteredCurrentProducts = currentProducts.filter((p)=>p.title.includes(searchQuery))
+        setSearchCurrentProducts(filteredCurrentProducts)
+      }
+
+    },[searchQuery,currentProducts])
+
   return (
     <div className={classes.page}>
       <Navbar />
       <div>
-        <MyInput />
+        <MyInput 
+        value={searchQuery}
+        onChange={e=>setSearchQuery(e.target.value)}
+        placeholder='Поиск...' />
       </div>
       <div className={classes.select}>
         <select value={category} onChange={(event) => setCategory(event.target.value)}>
@@ -54,7 +66,7 @@ const Products = () => {
       </div>
       <hr />
       <div className={classes.pageproducts}>
-        {currentProducts.map((p) => (
+        {searchCurrentProducts.map((p) => (
           <div className={classes.card}>
             <ProductItem
               key={p.id}
